@@ -1,0 +1,5 @@
+.DBStore/*
+.history/*
+.idea/*
+/build/*
+/test/*
