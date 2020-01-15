@@ -1,7 +1,0 @@
-.DBStore/*
-.DS_Store/*
-.gitignore/*
-.history/*
-.idea/*
-/build/*
-/test/*
