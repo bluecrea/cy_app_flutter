@@ -9,7 +9,6 @@ class MyApp extends StatelessWidget {
     return RestartWidget(
       child: MaterialApp(
         theme: ThemeData(backgroundColor: Colors.white),
-        title: '厨易',
         home: Scaffold(
           resizeToAvoidBottomPadding: false,
           body: SplashWidget(),

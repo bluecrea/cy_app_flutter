@@ -80,10 +80,10 @@ class _SplashWidgetState extends State<SplashWidget> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Image.asset(
-                              'images/lake.jpg',
-                              fit: BoxFit.cover,
-                            ),
+                            // Image.asset(
+                            //   'images/lake.jpg',
+                            //   fit: BoxFit.cover,
+                            // ),
                             Padding(
                               padding: const EdgeInsets.only(left: 10.0),
                               child: Text(
