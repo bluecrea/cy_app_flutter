@@ -91,6 +91,9 @@ class HomePageState extends State<HomePage> {
                         return imageList[index];
                       },
                       itemCount: 4,
+                      autoplay: true,
+                      autoplayDelay: 6000,
+                      duration: 500,
                       pagination: new SwiperPagination(),
                     ),
                   ],

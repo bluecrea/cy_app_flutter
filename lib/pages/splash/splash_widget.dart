@@ -1,5 +1,6 @@
-// App启动页
-
+/* * App启动页
+* 待完善：关闭动画
+*/
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:chuyi/pages/container_page.dart';
@@ -16,15 +17,14 @@ class _SplashWidgetState extends State<SplashWidget> {
   bool showAd = true;
 
   @override
-  Widget build(BuildContext context) {
-    print('build splash');
-    return Stack(
+  Widget build(BuildContext context) {    
+    return Stack(      
       children: <Widget>[
         Offstage(
           child: container,
-          offstage: showAd,
+          offstage: showAd,          
         ),
-        Offstage(
+        Offstage(          
           child: Container(
             color: Colors.white,
             child: Stack(
@@ -33,18 +33,12 @@ class _SplashWidgetState extends State<SplashWidget> {
                   alignment: Alignment(0.0, 0.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      // CircleAvatar(
-                      //   radius: ScreenUtils.screenW(context) / 3,
-                      //   backgroundColor: Colors.white,
-                      //   backgroundImage:
-                      //   AssetImage(Constant.ASSETS_IMG + 'home.png'),
-                      // ),
+                    children: <Widget>[                      
                       Padding(
                         padding: const EdgeInsets.only(top: 20.0),
                         child: Text(
                           '厨艺——让厨艺更容易～',
-                          style: TextStyle(fontSize: 15.0, color: Colors.black),
+                          style: TextStyle(fontSize: 15.0, color: Color(0xFFFB7101)),
                         ),
                       )
                     ],
@@ -52,26 +46,27 @@ class _SplashWidgetState extends State<SplashWidget> {
                 ),
                 SafeArea(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,                    
                     children: <Widget>[
                       Align(
-                        alignment: Alignment(1.0, 0.0),
-                        child: Container(
+                        alignment: Alignment(1.0, 0.0),                        
+                        child: Container(                          
                           margin: const EdgeInsets.only(right: 30.0, top: 20.0),
                           padding: const EdgeInsets.only(
-                              left: 10.0, right: 10.0, top: 2.0, bottom: 2.0),
-                          child: CountDownWidget(
+                            left: 10.0, right: 10.0, top: 2.0, bottom: 2.0
+                          ),
+                          child: CountDownWidget(                            
                             onCountDownFinishCallBack: (bool value) {
                               if (value) {
                                 setState(() {
                                   showAd = false;
                                 });
                               }
-                            },
+                            },                            
                           ),
                           decoration: BoxDecoration(
-                            color: Color(0xffEDEDED),
-                            borderRadius: const BorderRadius.all(Radius.circular(10.0))
+                            color: Color(0x80000000),///option:0.5                 
+                            borderRadius: const BorderRadius.all(Radius.circular(10.0))                            
                           ),
                         ),
                       ),
@@ -79,17 +74,11 @@ class _SplashWidgetState extends State<SplashWidget> {
                         padding: const EdgeInsets.only(bottom: 40.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            // Image.asset(
-                            //   'images/lake.jpg',
-                            //   fit: BoxFit.cover,
-                            // ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10.0),
-                              child: Text(
-                                '厨易',
-                                style: TextStyle(color: Colors.orange,fontSize: 20.0),
-                              ),
+                          children: <Widget>[                            
+                            Image.asset(
+                              'assets/images/icon_launcher.png',
+                              width: 100.0,
+                              height: 50.0,
                             )
                           ],
                         ),
@@ -131,9 +120,15 @@ class _CountDownWidgetState extends State<CountDownWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      '$_seconds 跳过',
-      style: TextStyle(fontSize: 16.0),
+    /// 点击跳过
+    return GestureDetector(
+      onTap: () {
+        widget.onCountDownFinishCallBack(true);
+      },
+      child: Text(
+        '$_seconds 跳过',
+        style: TextStyle(fontSize: 14.0, color: const Color(0xffffffff))      
+      ),
     );
   }
 
